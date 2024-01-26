@@ -1,5 +1,5 @@
 # python Copy Windows profile
-
+import os
 from tkinter import *
 
 ws = Tk()
@@ -67,5 +67,28 @@ dsc_usr.place(x=1100, y=80)
 dsc_usr_input = Entry(ws, width='25')
 dsc_usr_input.place(x=1340, y=80)
 
+# # appends current content of l_one with the new pressed key value
+# def callback(event):
+#     l_one.config(text=src_input.get() + event.char)
+#
+# # binds callback to every keypress
+# src_input.bind("<Key>", callback)
+#
+# l_one = Label(ws, bg='#76a5af', fg='#fff', font=("Verdana 10"))
+# l_one.place(x=20, y=120)
+def display_folder_contents(folder_path):
+    try:
+        folder_contents = os.listdir(folder_path)
+        ws.Listbox.delete(0, ws.END)  # Clear the current list
+
+        for item in folder_contents:
+            ws.Listbox.insert(ws.END, item)
+
+    except Exception as e:
+        ws.Listbox.delete(0, ws.END)  # Clear the current list
+        ws.Listbox.insert(ws.END, f"Error: {str(e)}")
+
+folder_list = Listbox(ws)
+folder_list.pack()
 
 ws.mainloop()
