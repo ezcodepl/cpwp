@@ -1,2 +1,71 @@
 # python Copy Windows profile
-# first test line on develop branch
+
+from tkinter import *
+
+ws = Tk()
+ws.title('Windows 10 / Windows 11 copy User Profile')
+w = 1820  # Width
+h = 1080  # Height
+
+screen_width = ws.winfo_screenwidth()  # Width of the screen
+screen_height = ws.winfo_screenheight()  # Height of the screen
+
+# Calculate Starting X and Y coordinates for Window
+x = (screen_width / 2) - (w / 2)
+y = (screen_height / 2) - (h / 2)
+
+ws.geometry('%dx%d+%d+%d' % (w, h, x, y))
+ws.minsize(800, 600)
+ws['bg'] = '#76a5af'
+
+#bg = '#76a5af', #45818e #134f5c
+#source computer
+src_txt = Label(
+    ws,
+    text="Wpisz adres komputera źródłowego:",
+    bg='#76a5af',
+    fg='#fff',
+    font=("Verdana 10")
+)
+src_txt.place(x=20, y=40)
+
+src_input = Entry(ws, width='45')
+src_input.place(x=340, y=40)
+
+src_usr = Label(
+    ws,
+    text="Wpisz nazwę użytkownika:",
+    bg='#76a5af',
+    fg='#fff',
+    font=("Verdana 10")
+)
+src_usr.place(x=20, y=80)
+src_usr_input = Entry(ws, width='25')
+src_usr_input.place(x=260, y=80)
+
+#destination computer
+dsc_txt = Label(
+    ws,
+    text="Wpisz adres komputera docelowego:",
+    bg='#76a5af',
+    fg='#fff',
+    font=("Verdana 10")
+)
+dsc_txt.place(x=1100, y=40)
+
+dsc_input = Entry(ws, width='45')
+dsc_input.place(x=1425, y=40)
+
+dsc_usr = Label(
+    ws,
+    text="Wpisz nazwę użytkownika:",
+    bg='#76a5af',
+    fg='#fff',
+    font=("Verdana 10")
+)
+dsc_usr.place(x=1100, y=80)
+dsc_usr_input = Entry(ws, width='25')
+dsc_usr_input.place(x=1340, y=80)
+
+
+ws.mainloop()
